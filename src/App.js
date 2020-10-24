@@ -3,10 +3,14 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 
 import './App.css';
 import AppBar from "@material-ui/core/AppBar";
+import SignIn from "./components/SignIn";
+import React from "react";
+import PostForm from "./components/PostForm";
+import CommentForm from "./components/CommentForm";
+import Posts from "./components/Posts";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -25,19 +29,6 @@ function getSteps() {
 	return ['Sign in', 'Write a post', 'Write a comment'];
 }
 
-function getStepContent(step) {
-	switch (step) {
-		case 0:
-			return 'Select campaign settings...';
-		case 1:
-			return 'What is an ad group anyways?';
-		case 2:
-			return 'This is the bit I really care about!';
-		default:
-			return 'Unknown step';
-	}
-}
-
 function App() {
 	const classes = useStyles();
 	const [activeStep, setActiveStep] = React.useState(0);
@@ -52,6 +43,19 @@ function App() {
 
 	const handleReset = () => {
 		setActiveStep(0);
+	};
+
+	const renderStep = (activeStep) => {
+		switch (activeStep) {
+			case 0:
+				return <SignIn />;
+			case 1:
+				return <PostForm />;
+			case 2:
+				return <CommentForm />;
+			case 3:
+				return <Posts />;
+		}
 	};
 
 	return (
@@ -72,28 +76,27 @@ function App() {
 			</AppBar>
 
 			<div>
+				{renderStep(activeStep)}
+
 				{activeStep === steps.length ? (
 					<div>
-						<Typography className={classes.instructions}>
-							All steps completed - you&apos;re finished
-						</Typography>
 						<Button onClick={handleReset} className={classes.button}>
-							Reset
+							Restart
+						</Button>
+						<Button className={classes.button}>
+							Logout
 						</Button>
 					</div>
 				) : (
 					<div>
-						<Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
-						<div>
-							<Button
-								variant="contained"
-								color="primary"
-								onClick={handleNext}
-								className={classes.button}
-							>
-								{activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-							</Button>
-						</div>
+						<Button
+							variant="contained"
+							color="primary"
+							onClick={handleNext}
+							className={classes.button}
+						>
+							Next
+						</Button>
 					</div>
 				)}
 			</div>
