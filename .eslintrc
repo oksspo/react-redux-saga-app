@@ -1,0 +1,33 @@
+{ "parser": "babel-eslint",
+  "plugins": [
+    "react"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "react/jsx-uses-react": "error",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-indent": ["error", "tab"],
+    "react/jsx-indent-props": 0,
+    "jsx-a11y/anchor-has-content": 0,
+    "react/forbid-prop-types": 0,
+    "no-case-declarations": 0,
+    "no-alert": 0,
+    "global-require": 0,
+    "no-confusing-arrow": 0,
+    "no-loop-func": 0,
+    "indent": ["error", "tab", {"SwitchCase": 1}],
+    "max-len": ["error", 200],
+    "no-tabs": 0,
+    "no-plusplus": 0,
+    "no-debugger": 1,
+    "import/prefer-default-export": 0,
+    "no-extra-boolean-cast": 0,
+    "no-nested-ternary": 0,
+    "prefer-const": 0,
+    "comma-dangle": ["error", "never"]
+  }
+}
