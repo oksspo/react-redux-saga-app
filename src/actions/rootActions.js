@@ -3,7 +3,7 @@ import {
 	NEXT_STEP,
 	RESTART,
 	SHOW_CONFIRMATION
-} from "./types";
+} from "../types/rootTypes";
 
 export function restart() {
 	return {

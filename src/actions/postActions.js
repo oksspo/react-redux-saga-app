@@ -1,4 +1,4 @@
-import { ADD_COMMENT, ADD_POST } from "./types";
+import { ADD_COMMENT, ADD_POST } from "../types/postTypes";
 
 export function addPost(post) {
 	return {

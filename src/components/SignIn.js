@@ -5,7 +5,7 @@ import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import CardActions from "@material-ui/core/CardActions";
-import { signIn } from "../redux/authActions";
+import { signIn } from "../actions/authActions";
 
 class SignInForm extends React.Component {
 	constructor(props) {

@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card/Card";
 import CardActions from "@material-ui/core/CardActions/CardActions";
-import { addComment } from "../redux/postActions";
+import { addComment } from "../actions/postActions";
 
 class CommentForm extends React.Component {
 	constructor(props) {

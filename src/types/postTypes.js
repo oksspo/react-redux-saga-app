@@ -1,0 +1,5 @@
+export const ADD_POST = 'POST/ADD_POST';
+export const UPDATE_POST = 'POST/UPDATE_POST';
+
+export const ADD_COMMENT = 'POST/ADD_COMMENT';
+export const UPDATE_COMMENT = 'POST/UPDATE_COMMENT';

@@ -6,7 +6,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import { hideConfirmation, restart } from "../redux/rootActions";
+import { hideConfirmation, restart } from "../actions/rootActions";
 
 export default ({}) => {
 	const dispatch = useDispatch();

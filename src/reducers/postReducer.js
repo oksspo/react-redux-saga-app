@@ -1,4 +1,5 @@
-import {HIDE_CONFIRMATION, RESTART, SHOW_CONFIRMATION, UPDATE_COMMENT, UPDATE_POST} from "./types";
+import { HIDE_CONFIRMATION, RESTART, SHOW_CONFIRMATION } from "../types/rootTypes";
+import { UPDATE_COMMENT, UPDATE_POST } from "../types/postTypes";
 
 const initialState = {
 	id: '',

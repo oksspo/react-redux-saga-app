@@ -1,10 +1,10 @@
 import {
 	NEXT_STEP,
 	RESTART
-} from "./types";
+} from "../types/rootTypes";
 
 import { call, put, takeEvery, fork } from "redux-saga/effects";
-import { hideConfirmation, nextStep } from "./rootActions";
+import { hideConfirmation, nextStep } from "../actions/rootActions";
 import { push } from "connected-react-router";
 import { authWatcher } from "./authSagas";
 import { postWatcher } from "./postSagas";

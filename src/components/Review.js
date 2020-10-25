@@ -8,8 +8,8 @@ import Button from "@material-ui/core/Button";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
-import { askConfirmation, restart } from "../redux/rootActions";
-import { signOut } from "../redux/authActions";
+import { askConfirmation, restart } from "../actions/rootActions";
+import { signOut } from "../actions/authActions";
 
 class Review extends React.Component {
 	constructor(props) {

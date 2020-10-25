@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { ADD_COMMENT, ADD_POST, UPDATE_COMMENT, UPDATE_POST } from "./types";
-import { nextStep } from "./rootActions";
+import { ADD_COMMENT, ADD_POST, UPDATE_COMMENT, UPDATE_POST } from "../types/postTypes";
+import { nextStep } from "../actions/rootActions";
 import { getToken } from "./authSagas";
 
 export function* postWatcher() {

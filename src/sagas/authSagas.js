@@ -1,7 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { CURRENT_USER, SIGN_IN, SIGN_OUT } from "./types";
-import { nextStep } from "./rootActions";
-import { userNotExist } from "./authActions";
+import { CURRENT_USER, SIGN_IN, SIGN_OUT } from "../types/authTypes";
+import { nextStep } from "../actions/rootActions";
+import { userNotExist } from "../actions/authActions";
 
 export function* authWatcher() {
 	yield takeEvery(SIGN_IN, signInWorker);

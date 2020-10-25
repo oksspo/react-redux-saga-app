@@ -1,4 +1,4 @@
-import {SIGN_IN, SIGN_OUT, USER_NOT_EXIST} from "./types";
+import { SIGN_IN, SIGN_OUT, USER_NOT_EXIST } from "../types/authTypes";
 
 export function signIn(userCredentials) {
 	return {

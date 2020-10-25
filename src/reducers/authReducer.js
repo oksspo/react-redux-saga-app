@@ -1,4 +1,4 @@
-import {CURRENT_USER, USER_NOT_EXIST} from "./types";
+import { CURRENT_USER, USER_NOT_EXIST } from "../types/authTypes";
 
 const initialState = {
 	id: '',
