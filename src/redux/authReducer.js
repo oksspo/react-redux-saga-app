@@ -4,7 +4,8 @@ const initialState = {
 	id: '',
 	name: '',
 	email: '',
-	userNotExist: false
+	userNotExist: false,
+	token: ''
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -14,7 +15,8 @@ export const authReducer = (state = initialState, action) => {
 				id: action.payload.id,
 				name: action.payload.name,
 				email: action.payload.email,
-				userNotExist: false
+				userNotExist: false,
+				token: action.payload.token
 			};
 		case USER_NOT_EXIST:
 			return {...state, userNotExist: true};

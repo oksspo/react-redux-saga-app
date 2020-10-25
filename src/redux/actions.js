@@ -1,9 +1,21 @@
-import {ADD_COMMENT, ADD_POST, NEXT_STEP, SIGN_IN, USER_NOT_EXIST} from "./types";
+import {ADD_COMMENT, ADD_POST, NEXT_STEP, RESTART, SIGN_IN, SIGN_OUT, USER_NOT_EXIST} from "./types";
 
 export function signIn(userCredentials) {
 	return {
 		type: SIGN_IN,
 		payload: userCredentials
+	}
+}
+
+export function signOut() {
+	return {
+		type: SIGN_OUT
+	}
+}
+
+export function restart() {
+	return {
+		type: RESTART
 	}
 }
 

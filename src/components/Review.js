@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
+import { restart, signOut } from "../redux/actions";
 
 class Review extends React.Component {
 	constructor(props) {
@@ -48,10 +49,12 @@ class Review extends React.Component {
 				</List>
 			</CardContent>
 			<CardActions>
-				<Button color="primary">
+				<Button color="primary"
+					onClick={this.props.restart}>
 					Restart
 				</Button>
-				<Button color="primary">
+				<Button color="primary"
+					onClick={this.props.signOut}>
 					Logout
 				</Button>
 			</CardActions>
@@ -59,8 +62,13 @@ class Review extends React.Component {
 	}
 }
 
+const mapDispatchToProps = {
+	signOut,
+	restart
+};
+
 const mapStateToProps = state => ({
 	post: state.post
 });
 
-export default connect(mapStateToProps, null)(Review);
+export default connect(mapStateToProps, mapDispatchToProps)(Review);
