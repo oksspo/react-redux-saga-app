@@ -12,7 +12,7 @@ import Box from "@material-ui/core/Box";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import { withStyles } from '@material-ui/core/styles';
-import { askConfirmation, restart } from "../actions/rootActions";
+import { askConfirmation } from "../actions/rootActions";
 import { signOut } from "../actions/authActions";
 
 const styles = (theme) => ({
@@ -25,72 +25,64 @@ const styles = (theme) => ({
 	}
 });
 
-class Review extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
+function renderComments(comments) {
+	return (comments.map((comment) => (<ListItem alignItems="flex-start" key={comment.id}>
+		<ListItemText primary={comment.name}
+					  secondary={
+						  <React.Fragment>
+							  {comment.body}
+						  </React.Fragment>
+					  }
+		/>
+	</ListItem>)));
+}
 
-	renderComments() {
-		return (this.props.post.comments.map((comment) => (<ListItem alignItems="flex-start" key={comment.id}>
-			<ListItemText primary={comment.name}
-						  secondary={
-							  <React.Fragment>
-								  {comment.body}
-							  </React.Fragment>
-						  }
-			/>
-		</ListItem>)));
-	};
+function Review(props) {
+	const {classes} = props;
+	return (<Container component="main" maxWidth="xs">
+		<Card>
+			<CardContent>
+				<Typography color="textSecondary" gutterBottom>
+					Your post
+				</Typography>
+				<Typography gutterBottom variant="h3" component="h2">
+					{props.post.title}
+				</Typography>
 
-	render() {
-		const { classes } = this.props;
-		return (<Container component="main" maxWidth="xs">
-			<Card>
-				<CardContent>
-					<Typography color="textSecondary" gutterBottom>
-						Your post
-					</Typography>
-					<Typography gutterBottom variant="h3" component="h2">
-						{this.props.post.title}
-					</Typography>
-
-					<Typography variant="body2" color="textSecondary" component="p">
-						{this.props.post.body}
-					</Typography>
-				</CardContent>
-			</Card>
-			<Card className={classes.comments}>
-				<CardContent>
-					<Typography color="textSecondary" gutterBottom>
-						Your comment
-					</Typography>
-					<List>
-						{this.renderComments()}
-					</List>
-				</CardContent>
-			</Card>
-			<Box className={classes.actions}>
-				<Button color="secondary"
-					variant="contained"
-					onClick={this.props.askConfirmation}
-					endIcon={<RotateLeftIcon />}>
-					Restart
-				</Button>
-				<Button color="primary"
-					variant="contained"
-					onClick={this.props.signOut}
-					endIcon={<ExitToAppIcon />}>
-					Logout
-				</Button>
-			</Box>
-		</Container>);
-	}
+				<Typography variant="body2" color="textSecondary" component="p">
+					{props.post.body}
+				</Typography>
+			</CardContent>
+		</Card>
+		<Card className={classes.comments}>
+			<CardContent>
+				<Typography color="textSecondary" gutterBottom>
+					Your comment
+				</Typography>
+				<List>
+					{renderComments(props.post.comments)}
+				</List>
+			</CardContent>
+		</Card>
+		<Box className={classes.actions}>
+			<Button color="secondary"
+				variant="contained"
+				onClick={props.askConfirmation}
+				endIcon={<RotateLeftIcon/>}>
+				Restart
+			</Button>
+			<Button color="primary"
+				variant="contained"
+				onClick={props.signOut}
+				endIcon={<ExitToAppIcon/>}>
+				Logout
+			</Button>
+		</Box>
+	</Container>);
 }
 
 const mapDispatchToProps = {
 	signOut,
-	restart,
 	askConfirmation
 };
 

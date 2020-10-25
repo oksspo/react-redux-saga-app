@@ -16,7 +16,7 @@ const styles = (theme) => ({
 	}
 });
 
-class CommentForm extends React.Component {
+class CommentForm extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {

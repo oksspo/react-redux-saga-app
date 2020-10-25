@@ -7,6 +7,7 @@ Small but ambitious application with 4 screens to sign in, create a post, write 
 * Clone this repo
 * Install dependencies by `npm install`
 * Run app by `npm start`
+* Open http://localhost:8081/
 
 ## App structure
 * Step 1 / Sign in 
@@ -40,8 +41,12 @@ Small but ambitious application with 4 screens to sign in, create a post, write 
 * [Redux v4.0.5](https://redux.js.org)
 * [Saga v1.1.3](https://redux-saga.js.org)
 * [Material UI](https://material-ui.com/)
+
+## Dependencies
+* [Node v15.0.1](https://nodejs.org/uk/blog/release/v15.0.1/)
+* [NPM 6.14.8](https://www.npmjs.com/package/npm/v/6.14.8)
     
-## Knowing issues
+## Known issues
 * There is one warning in the last step caused by the confirmation dialog from Material UI:
 > Warning: findDOMNode is deprecated in StrictMode. findDOMNode was passed an instance of Transition which is inside StrictMode.
 * If you refresh any route it will lose entered data from previous steps. Sorry, haven't solved it :grimacing:

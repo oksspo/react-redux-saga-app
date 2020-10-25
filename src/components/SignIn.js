@@ -28,7 +28,7 @@ const styles = (theme) => ({
 	}
 });
 
-class SignInForm extends React.Component {
+class SignInForm extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
