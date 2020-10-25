@@ -6,11 +6,12 @@ import Button from '@material-ui/core/Button';
 
 import './App.css';
 import AppBar from "@material-ui/core/AppBar";
-import SignIn from "./components/SignIn";
+import SignInForm from "./components/SignIn";
 import React from "react";
 import PostForm from "./components/PostForm";
 import CommentForm from "./components/CommentForm";
 import Posts from "./components/Posts";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -48,7 +49,7 @@ function App() {
 	const renderStep = (activeStep) => {
 		switch (activeStep) {
 			case 0:
-				return <SignIn />;
+				return <SignInForm />;
 			case 1:
 				return <PostForm />;
 			case 2:
@@ -75,7 +76,7 @@ function App() {
 				</Stepper>
 			</AppBar>
 
-			<div>
+			<Container maxWidth="sm">
 				{renderStep(activeStep)}
 
 				{activeStep === steps.length ? (
@@ -99,7 +100,7 @@ function App() {
 						</Button>
 					</div>
 				)}
-			</div>
+			</Container>
 		</div>
 	);
 }
