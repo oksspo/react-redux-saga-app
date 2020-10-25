@@ -17,7 +17,6 @@ class PostForm extends React.Component {
 
 	submitPost = event => {
 		event.preventDefault();
-		console.log({...this.state, userId: this.props.userId});
 		this.props.addPost({...this.state, userId: this.props.userId});
 	};
 

@@ -6,3 +6,5 @@ export const NEXT_STEP = 'APP/NEXT_STEP';
 
 export const ADD_POST = 'POST/ADD_POST';
 export const UPDATE_POST = 'POST/UPDATE_POST';
+
+export const ADD_COMMENT = 'POST/ADD_COMMENT';

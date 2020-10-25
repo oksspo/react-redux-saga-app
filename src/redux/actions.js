@@ -1,4 +1,4 @@
-import {ADD_POST, NEXT_STEP, SIGN_IN, USER_NOT_EXIST} from "./types";
+import {ADD_COMMENT, ADD_POST, NEXT_STEP, SIGN_IN, USER_NOT_EXIST} from "./types";
 
 export function signIn(userCredentials) {
 	return {
@@ -26,3 +26,11 @@ export function addPost(post) {
 		payload: post
 	}
 }
+
+export function addComment(comment) {
+	return {
+		type: ADD_COMMENT,
+		payload: comment
+	}
+}
+
