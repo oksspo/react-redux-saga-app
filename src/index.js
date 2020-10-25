@@ -14,6 +14,7 @@ import SignInForm from "./components/SignIn";
 import PostForm from "./components/PostForm";
 import CommentForm from "./components/CommentForm";
 import Review from "./components/Review";
+import NotFound from "./components/NotFound";
 import './index.css';
 
 export const history = createBrowserHistory();
@@ -35,6 +36,7 @@ ReactDOM.render(
 						<Route path="/add-post" component={PostForm} />
 						<Route path="/add-comment" component={CommentForm} />
 						<Route path="/review" component={Review} />
+						<Route component={NotFound} />
 					</Switch>
 				</App>
 			</ConnectedRouter>
