@@ -1,4 +1,5 @@
 import {
+	CLEAR_DATA,
 	NEXT_STEP,
 	RESTART
 } from "../types/rootTypes";
@@ -23,6 +24,7 @@ function* stepWorker(action) {
 
 function* restartWorker() {
 	yield put(hideConfirmation());
+	yield put({type: CLEAR_DATA});
 	yield put(nextStep('/add-post'));
 }
 

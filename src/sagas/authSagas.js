@@ -2,6 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { CURRENT_USER, SIGN_IN, SIGN_OUT } from "../types/authTypes";
 import { nextStep } from "../actions/rootActions";
 import { userNotExist } from "../actions/authActions";
+import {CLEAR_DATA} from "../types/rootTypes";
 
 export function* authWatcher() {
 	yield takeEvery(SIGN_IN, signInWorker);
@@ -35,6 +36,7 @@ function* signInWorker(action) {
 function* signOutWorker() {
 	try {
 		yield call(clearToken);
+		yield put({type: CLEAR_DATA});
 		yield put(nextStep('/'));
 	} catch (e) {
 		console.log('signOutWorker error:', error);

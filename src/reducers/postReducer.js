@@ -1,4 +1,4 @@
-import { HIDE_CONFIRMATION, RESTART, SHOW_CONFIRMATION } from "../types/rootTypes";
+import {CLEAR_DATA, HIDE_CONFIRMATION, SHOW_CONFIRMATION} from "../types/rootTypes";
 import { UPDATE_COMMENT, UPDATE_POST } from "../types/postTypes";
 
 const initialState = {
@@ -31,7 +31,7 @@ export const postReducer = (state = initialState, action) => {
 				...state,
 				showConfirmation: false
 			};
-		case RESTART:
+		case CLEAR_DATA:
 			return initialState;
 		default:
 			return state;
