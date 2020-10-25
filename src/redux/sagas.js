@@ -1,20 +1,22 @@
 import {REQUEST_USER, SIGN_IN} from "./types";
 import {call, put, takeEvery} from "redux-saga/effects";
-import {userNotExist} from "./actions";
+import {userNotExist, nextStep} from "./actions";
 
 export function* sagaWatcher() {
-	yield takeEvery(REQUEST_USER, sagaWorker)
+	yield takeEvery(REQUEST_USER, signInWorker);
 }
 
-function* sagaWorker(action) {
+function* signInWorker(action) {
 	const payload = yield call(signIn, action.payload);
 	if (!payload.length) {
 		yield put(userNotExist());
+		return;
 	}
 	yield put({
 		type: SIGN_IN,
 		payload: payload
 	});
+	yield put(nextStep())
 }
 
 async function signIn(credentials) {

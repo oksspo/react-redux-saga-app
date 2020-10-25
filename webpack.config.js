@@ -47,6 +47,7 @@ module.exports = {
 		host: 'localhost',
 		port: 8081,
 		contentBase: `${path.resolve(__dirname)}/build`,
-		hot: true
+		hot: true,
+		historyApiFallback: true
 	}
 };

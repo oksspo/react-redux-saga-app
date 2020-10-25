@@ -1,6 +1,7 @@
 import React from "react";
+import {connect} from "react-redux";
 
-export default class PostForm extends React.Component {
+class PostForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -10,3 +11,5 @@ export default class PostForm extends React.Component {
 		return (<h1> Step 2 - Write post</h1>);
 	}
 }
+
+export default connect(null, null)(PostForm);

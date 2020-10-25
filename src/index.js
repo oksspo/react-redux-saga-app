@@ -1,14 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Provider from "react-redux/lib/components/Provider";
-import {compose, createStore, applyMiddleware} from 'redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { compose, createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
-import './index.css';
-import App from './App';
 import createSagaMiddleware from 'redux-saga';
-
+import App from './App';
 import {rootReducer} from "./redux/rootReducer";
 import {sagaWatcher} from "./redux/sagas";
+import SignInForm from "./components/SignIn";
+import PostForm from "./components/PostForm";
+import CommentForm from "./components/CommentForm";
+import Posts from "./components/Posts";
+import './index.css';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+export const history = createBrowserHistory();
 
 const saga = createSagaMiddleware();
 
@@ -20,7 +27,16 @@ saga.run(sagaWatcher);
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App/>
+			<BrowserRouter history={history}>>
+				<App>
+					<Switch>
+						<Route exact path="/" component={SignInForm} />
+						<Route path="/add-post" component={PostForm} />
+						<Route path="/add-comment" component={CommentForm} />
+						<Route path="/list" component={Posts} />
+					</Switch>
+				</App>
+			</BrowserRouter>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')
