@@ -5,6 +5,7 @@ body,
   height: 100%;
 }
 
-.App {
-  background: #dddddd;
+.App,
+.MuiPaper-root.MuiStepper-vertical {
+  background: #eeeeee;
 }
