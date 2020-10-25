@@ -1,6 +1,7 @@
-import {call, put, takeEvery} from "redux-saga/effects";
-import {ADD_COMMENT, ADD_POST, UPDATE_COMMENT, UPDATE_POST} from "./types";
-import {nextStep} from "./actions";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { ADD_COMMENT, ADD_POST, UPDATE_COMMENT, UPDATE_POST } from "./types";
+import { nextStep } from "./rootActions";
+import { getToken } from "./authSagas";
 
 export function* postWatcher() {
 	yield takeEvery(ADD_POST, postWorker);
@@ -32,7 +33,7 @@ async function createPost(post) {
 		}),
 		headers: {
 			'Content-type': 'application/json; charset=UTF-8',
-			'Authorization': 'Bearer '
+			'Authorization': await getToken()
 		}
 	});
 	return await response.json();
@@ -46,4 +47,20 @@ function* commentWorker(action) {
 	});
 
 	yield put(nextStep('/review'));
+}
+
+async function addComment(post) {
+	const response = await fetch('https://jsonplaceholder.typicode.com/comments', {
+		method: 'POST',
+		body: JSON.stringify({
+			name: post.name,
+			body: post.comment,
+			userId: post.userId
+		}),
+		headers: {
+			'Content-type': 'application/json; charset=UTF-8',
+			'Authorization': await getToken()
+		}
+	});
+	return await response.json();
 }
