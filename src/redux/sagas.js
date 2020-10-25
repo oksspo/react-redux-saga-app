@@ -1,9 +1,19 @@
-import {REQUEST_USER, SIGN_IN} from "./types";
-import {call, put, takeEvery} from "redux-saga/effects";
-import {userNotExist, nextStep} from "./actions";
+import {CURRENT_USER, NEXT_STEP, SIGN_IN} from "./types";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { userNotExist, nextStep } from "./actions";
+import { push } from  "connected-react-router";
 
 export function* sagaWatcher() {
-	yield takeEvery(REQUEST_USER, signInWorker);
+	yield takeEvery(SIGN_IN, signInWorker);
+	yield takeEvery(NEXT_STEP, stepWorker);
+}
+
+function* stepWorker(action) {
+	yield call(navigate, action.payload);
+}
+
+function* navigate(path) {
+	yield put(push(path));
 }
 
 function* signInWorker(action) {
@@ -12,11 +22,13 @@ function* signInWorker(action) {
 		yield put(userNotExist());
 		return;
 	}
+
 	yield put({
-		type: SIGN_IN,
+		type: CURRENT_USER,
 		payload: payload
 	});
-	yield put(nextStep())
+
+	yield put(nextStep('/add-post'));
 }
 
 async function signIn(credentials) {

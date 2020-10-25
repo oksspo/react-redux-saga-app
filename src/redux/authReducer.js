@@ -1,4 +1,4 @@
-import {SIGN_IN, USER_NOT_EXIST} from "./types";
+import {CURRENT_USER, USER_NOT_EXIST} from "./types";
 
 const initialState = {
 	id: '',
@@ -9,7 +9,7 @@ const initialState = {
 
 export const authReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case SIGN_IN:
+		case CURRENT_USER:
 			return {
 				...action.payload,
 				userNotExist: false
