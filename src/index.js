@@ -35,7 +35,7 @@ ReactDOM.render(
 						<Route exact path="/" component={SignInForm} />
 						<Route path="/add-post" component={PostForm} />
 						<Route path="/add-comment" component={CommentForm} />
-						<Route path="/list" component={Posts} />
+						<Route path="/review" component={Posts} />
 					</Switch>
 				</App>
 			</ConnectedRouter>

@@ -7,10 +7,6 @@ import Container from "@material-ui/core/Container";
 import './App.css';
 import {connect} from "react-redux";
 
-function getSteps() {
-	return ['Sign in', 'Write a post', 'Write a comment', 'Publications'];
-}
-
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -42,8 +38,16 @@ class App extends React.Component {
 	};
 }
 
+function getSteps() {
+	return ['Sign in', 'Write a post', 'Write a comment', 'Review'];
+}
+
+function getActiveStep(path) {
+	return ['/', '/add-post', '/add-comment', '/review'].indexOf(path);
+}
+
 const mapStateToProps = state => ({
-	activeStep: state.app.activeStep
+	activeStep: getActiveStep(state.router.location.pathname)
 });
 
 export default connect(mapStateToProps, null)(App);

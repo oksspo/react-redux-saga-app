@@ -3,4 +3,6 @@ export const CURRENT_USER = 'AUTH/CURRENT_USER';
 export const USER_NOT_EXIST = 'AUTH/USER_NOT_EXIST';
 
 export const NEXT_STEP = 'APP/NEXT_STEP';
-export const ACTIVATE_STEP = 'APP/ACTIVATE_STEP';
+
+export const ADD_POST = 'POST/ADD_POST';
+export const UPDATE_POST = 'POST/UPDATE_POST';

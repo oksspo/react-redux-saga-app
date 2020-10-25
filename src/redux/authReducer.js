@@ -11,7 +11,9 @@ export const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case CURRENT_USER:
 			return {
-				...action.payload,
+				id: action.payload.id,
+				name: action.payload.name,
+				email: action.payload.email,
 				userNotExist: false
 			};
 		case USER_NOT_EXIST:

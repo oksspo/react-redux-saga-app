@@ -1,4 +1,4 @@
-import {NEXT_STEP, SIGN_IN, USER_NOT_EXIST} from "./types";
+import {ADD_POST, NEXT_STEP, SIGN_IN, USER_NOT_EXIST} from "./types";
 
 export function signIn(userCredentials) {
 	return {
@@ -17,5 +17,12 @@ export function nextStep(path) {
 	return {
 		type: NEXT_STEP,
 		payload: path
+	}
+}
+
+export function addPost(post) {
+	return {
+		type: ADD_POST,
+		payload: post
 	}
 }
