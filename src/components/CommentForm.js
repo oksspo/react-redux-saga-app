@@ -5,7 +5,16 @@ import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card/Card";
 import CardActions from "@material-ui/core/CardActions/CardActions";
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import { withStyles } from '@material-ui/core/styles';
 import { addComment } from "../actions/postActions";
+
+const styles = (theme) => ({
+	next: {
+		justifyContent: 'flex-end',
+		marginRight: theme.spacing(1)
+	}
+});
 
 class CommentForm extends React.Component {
 	constructor(props) {
@@ -28,6 +37,7 @@ class CommentForm extends React.Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (<Card>
 			<form autoComplete="off"
 				  onSubmit={this.submitComment}>
@@ -35,14 +45,18 @@ class CommentForm extends React.Component {
 					<div>
 						<TextField label="Name"
 								   name="name"
+								   margin="normal"
 								   required
 								   fullWidth
+								   autoFocus
 								   onChange={this.changeInputHandler}/>
 					</div>
 
 					<div>
 						<TextField label="Comment"
 								   name="comment"
+								   variant="outlined"
+								   margin="normal"
 								   required
 								   multiline
 								   fullWidth
@@ -50,10 +64,11 @@ class CommentForm extends React.Component {
 								   onChange={this.changeInputHandler}/>
 					</div>
 				</CardContent>
-				<CardActions>
+				<CardActions className={classes.next}>
 					<Button type="submit"
 						variant="contained"
-						color="primary">
+						color="primary"
+						endIcon={<NavigateNextIcon />}>
 						Next
 					</Button>
 				</CardActions>
@@ -71,4 +86,4 @@ const mapStateToProps = state => ({
 	postId: state.post.id
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(CommentForm));

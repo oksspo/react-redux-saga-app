@@ -4,8 +4,17 @@ import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card/Card";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import CardActions from "@material-ui/core/CardActions/CardActions";
+import { withStyles } from '@material-ui/core/styles';
 import { addPost } from "../actions/postActions";
+
+const styles = (theme) => ({
+	next: {
+		justifyContent: 'flex-end',
+		marginRight: theme.spacing(1)
+	}
+});
 
 class PostForm extends React.Component {
 	constructor(props) {
@@ -28,6 +37,7 @@ class PostForm extends React.Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (<Card>
 			<form autoComplete="off"
 				  onSubmit={this.submitPost}>
@@ -35,7 +45,9 @@ class PostForm extends React.Component {
 					<div>
 						<TextField label="Title"
 								   name="title"
+								   margin="normal"
 								   required
+								   autoFocus
 								   fullWidth
 								   onChange={this.changeInputHandler}/>
 					</div>
@@ -43,6 +55,8 @@ class PostForm extends React.Component {
 					<div>
 						<TextField label="Post"
 								   name="text"
+								   variant="outlined"
+								   margin="normal"
 								   required
 								   multiline
 								   fullWidth
@@ -50,10 +64,11 @@ class PostForm extends React.Component {
 								   onChange={this.changeInputHandler}/>
 					</div>
 				</CardContent>
-				<CardActions>
+				<CardActions className={classes.next}>
 					<Button type="submit"
 						variant="contained"
-						color="primary">
+						color="primary"
+						endIcon={<NavigateNextIcon />}>
 						Next
 					</Button>
 				</CardActions>
@@ -71,4 +86,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostForm);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PostForm));
