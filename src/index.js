@@ -12,7 +12,7 @@ import App from './App';
 import SignInForm from "./components/SignIn";
 import PostForm from "./components/PostForm";
 import CommentForm from "./components/CommentForm";
-import Posts from "./components/Posts";
+import Review from "./components/Review";
 import './index.css';
 import { createBrowserHistory } from 'history';
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
@@ -35,7 +35,7 @@ ReactDOM.render(
 						<Route exact path="/" component={SignInForm} />
 						<Route path="/add-post" component={PostForm} />
 						<Route path="/add-comment" component={CommentForm} />
-						<Route path="/review" component={Posts} />
+						<Route path="/review" component={Review} />
 					</Switch>
 				</App>
 			</ConnectedRouter>

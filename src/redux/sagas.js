@@ -1,4 +1,4 @@
-import {ADD_COMMENT, ADD_POST, CURRENT_USER, NEXT_STEP, SIGN_IN, UPDATE_POST} from "./types";
+import {ADD_COMMENT, ADD_POST, CURRENT_USER, NEXT_STEP, SIGN_IN, UPDATE_COMMENT, UPDATE_POST} from "./types";
 import {call, put, takeEvery} from "redux-saga/effects";
 import {userNotExist, nextStep} from "./actions";
 import {push} from "connected-react-router";
@@ -66,7 +66,7 @@ async function createPost(post) {
 function* commentWorker(action) {
 	const payload = yield call(addComment, action.payload);
 	yield put({
-		type: UPDATE_POST,
+		type: UPDATE_COMMENT,
 		payload: payload
 	});
 
