@@ -1,12 +1,12 @@
 import React from "react";
-import {connect} from "react-redux";
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
+import { connect } from "react-redux";
+import Stepper from "@material-ui/core/Stepper";
+import Step from "@material-ui/core/Step";
+import StepLabel from "@material-ui/core/StepLabel";
 import AppBar from "@material-ui/core/AppBar";
 import Grid from "@material-ui/core/Grid";
+import Confirmation from './components/Confirmation';
 import './App.css';
-
 
 class App extends React.Component {
 	constructor(props) {
@@ -37,6 +37,8 @@ class App extends React.Component {
 				<Grid item xs={6} >
 					{this.props.children}
 				</Grid>
+
+				<Confirmation />
 			</Grid>
 		);
 	};

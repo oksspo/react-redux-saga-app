@@ -1,6 +1,7 @@
-import {call, put, takeEvery} from "redux-saga/effects";
-import {CURRENT_USER, SIGN_IN, SIGN_OUT} from "./types";
-import {nextStep, userNotExist} from "./actions";
+import { call, put, takeEvery } from "redux-saga/effects";
+import { CURRENT_USER, SIGN_IN, SIGN_OUT } from "./types";
+import { nextStep } from "./rootActions";
+import { userNotExist } from "./authActions";
 
 export function* authWatcher() {
 	yield takeEvery(SIGN_IN, signInWorker);
@@ -43,6 +44,10 @@ function* signOutWorker() {
 	}
 }
 
+async function signIn(credentials) {
+	return fetch(`https://jsonplaceholder.typicode.com/users?email=${credentials.email}`).then((response) => response.json());
+}
+
 async function storeToken(token) {
 	try {
 		await localStorage.setItem('token', token);
@@ -59,6 +64,10 @@ async function clearToken() {
 	}
 }
 
-async function signIn(credentials) {
-	return fetch(`https://jsonplaceholder.typicode.com/users?email=${credentials.email}`).then((response) => response.json());
+export async function getToken() {
+	try {
+		return 'Bearer ' + await localStorage.getItem('token');
+	} catch (error) {
+		console.log('localStorage error during token get:', error);
+	}
 }

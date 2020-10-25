@@ -3,15 +3,16 @@ import {
 	RESTART
 } from "./types";
 
-import {call, put, takeEvery, fork} from "redux-saga/effects";
-import {nextStep} from "./actions";
-import {push} from "connected-react-router";
-import {authWatcher} from "./authSagas";
-import {postWatcher} from "./postSagas";
+import { call, put, takeEvery, fork } from "redux-saga/effects";
+import { hideConfirmation, nextStep } from "./rootActions";
+import { push } from "connected-react-router";
+import { authWatcher } from "./authSagas";
+import { postWatcher } from "./postSagas";
 
 export function* sagaWatcher() {
 	yield fork(authWatcher);
 	yield fork(postWatcher);
+
 	yield takeEvery(NEXT_STEP, stepWorker);
 	yield takeEvery(RESTART, restartWorker);
 }
@@ -21,6 +22,7 @@ function* stepWorker(action) {
 }
 
 function* restartWorker() {
+	yield put(hideConfirmation());
 	yield put(nextStep('/add-post'));
 }
 

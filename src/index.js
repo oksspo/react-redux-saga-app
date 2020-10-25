@@ -2,20 +2,19 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Switch, Route } from 'react-router-dom';
 import { compose, createStore, applyMiddleware } from 'redux';
-import {rootReducer} from "./redux/rootReducer";
-import {sagaWatcher} from "./redux/rootSagas";
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import createSagaMiddleware from 'redux-saga';
+import { createBrowserHistory } from 'history';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
+import { rootReducer } from "./redux/rootReducer";
+import { sagaWatcher } from "./redux/rootSagas";
 import App from './App';
-
 import SignInForm from "./components/SignIn";
 import PostForm from "./components/PostForm";
 import CommentForm from "./components/CommentForm";
 import Review from "./components/Review";
 import './index.css';
-import { createBrowserHistory } from 'history';
-import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
 
 export const history = createBrowserHistory();
 

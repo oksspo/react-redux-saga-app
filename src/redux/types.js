@@ -5,6 +5,8 @@ export const USER_NOT_EXIST = 'AUTH/USER_NOT_EXIST';
 
 export const NEXT_STEP = 'APP/NEXT_STEP';
 export const RESTART = 'APP/RESTART';
+export const SHOW_CONFIRMATION = 'APP/SHOW_CONFIRMATION';
+export const HIDE_CONFIRMATION = 'APP/HIDE_CONFIRMATION';
 
 export const ADD_POST = 'POST/ADD_POST';
 export const UPDATE_POST = 'POST/UPDATE_POST';

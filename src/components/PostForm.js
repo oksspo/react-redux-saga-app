@@ -1,11 +1,11 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card/Card";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
-import {addPost} from "../redux/actions";
 import CardActions from "@material-ui/core/CardActions/CardActions";
+import { addPost } from "../redux/postActions";
 
 class PostForm extends React.Component {
 	constructor(props) {

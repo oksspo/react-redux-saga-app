@@ -1,10 +1,11 @@
-import { UPDATE_COMMENT, UPDATE_POST } from "./types";
+import {HIDE_CONFIRMATION, RESTART, SHOW_CONFIRMATION, UPDATE_COMMENT, UPDATE_POST} from "./types";
 
 const initialState = {
 	id: '',
 	title: '',
 	body: '',
-	comments: []
+	comments: [],
+	showConfirmation: false
 };
 
 export const postReducer = (state = initialState, action) => {
@@ -19,6 +20,18 @@ export const postReducer = (state = initialState, action) => {
 				...state,
 				comments: state.comments.concat([action.payload])
 			};
+		case SHOW_CONFIRMATION:
+			return {
+				...state,
+				showConfirmation: true
+			};
+		case HIDE_CONFIRMATION:
+			return {
+				...state,
+				showConfirmation: false
+			};
+		case RESTART:
+			return initialState;
 		default:
 			return state;
 	}

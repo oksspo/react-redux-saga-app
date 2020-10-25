@@ -1,14 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card/Card";
 import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import {connect} from "react-redux";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import List from "@material-ui/core/List";
-import { restart, signOut } from "../redux/actions";
+import { askConfirmation, restart } from "../redux/rootActions";
+import { signOut } from "../redux/authActions";
 
 class Review extends React.Component {
 	constructor(props) {
@@ -50,7 +51,7 @@ class Review extends React.Component {
 			</CardContent>
 			<CardActions>
 				<Button color="primary"
-					onClick={this.props.restart}>
+					onClick={this.props.askConfirmation}>
 					Restart
 				</Button>
 				<Button color="primary"
@@ -64,7 +65,8 @@ class Review extends React.Component {
 
 const mapDispatchToProps = {
 	signOut,
-	restart
+	restart,
+	askConfirmation
 };
 
 const mapStateToProps = state => ({
