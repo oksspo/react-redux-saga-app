@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {connect} from "react-redux";
 import {signIn} from "../redux/actions";
+import CardActions from "@material-ui/core/CardActions";
 
 class SignInForm extends React.Component {
 	constructor(props) {
@@ -30,9 +31,9 @@ class SignInForm extends React.Component {
 	render() {
 		return (
 			<Card>
-				<CardContent>
-					<form autoComplete="off"
-						  onSubmit={this.submitSignIn}>
+				<form autoComplete="off"
+					  onSubmit={this.submitSignIn}>
+					<CardContent>
 						<div>
 							<TextField label="Email"
 									   type="email"
@@ -50,16 +51,15 @@ class SignInForm extends React.Component {
 									   required
 									   onChange={this.changeInputHandler}/>
 						</div>
-
-
-
+					</CardContent>
+					<CardActions>
 						<Button type="submit"
 							variant="contained"
 							color="primary">
 							Sign in
 						</Button>
-					</form>
-				</CardContent>
+					</CardActions>
+				</form>
 			</Card>);
 	}
 }

@@ -1,10 +1,11 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card/Card";
-import { addComment } from "../redux/actions";
+import {addComment} from "../redux/actions";
+import CardActions from "@material-ui/core/CardActions/CardActions";
 
 class CommentForm extends React.Component {
 	constructor(props) {
@@ -28,10 +29,9 @@ class CommentForm extends React.Component {
 
 	render() {
 		return (<Card>
-			<CardContent>
-				<form autoComplete="off"
-					  onSubmit={this.submitComment}>
-
+			<form autoComplete="off"
+				  onSubmit={this.submitComment}>
+				<CardContent>
 					<div>
 						<TextField label="Name"
 								   name="name"
@@ -49,14 +49,15 @@ class CommentForm extends React.Component {
 								   rows={4}
 								   onChange={this.changeInputHandler}/>
 					</div>
-
+				</CardContent>
+				<CardActions>
 					<Button type="submit"
 						variant="contained"
 						color="primary">
 						Next
 					</Button>
-				</form>
-			</CardContent>
+				</CardActions>
+			</form>
 		</Card>);
 	}
 }

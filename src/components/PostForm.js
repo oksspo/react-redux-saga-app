@@ -4,7 +4,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card/Card";
 import TextField from "@material-ui/core/TextField/TextField";
 import Button from "@material-ui/core/Button";
-import { addPost } from "../redux/actions";
+import {addPost} from "../redux/actions";
+import CardActions from "@material-ui/core/CardActions/CardActions";
 
 class PostForm extends React.Component {
 	constructor(props) {
@@ -28,10 +29,9 @@ class PostForm extends React.Component {
 
 	render() {
 		return (<Card>
-			<CardContent>
-				<form autoComplete="off"
-					  onSubmit={this.submitPost}>
-
+			<form autoComplete="off"
+				  onSubmit={this.submitPost}>
+				<CardContent>
 					<div>
 						<TextField label="Title"
 								   name="title"
@@ -49,14 +49,15 @@ class PostForm extends React.Component {
 								   rows={4}
 								   onChange={this.changeInputHandler}/>
 					</div>
-
+				</CardContent>
+				<CardActions>
 					<Button type="submit"
 						variant="contained"
 						color="primary">
 						Next
 					</Button>
-				</form>
-			</CardContent>
+				</CardActions>
+			</form>
 		</Card>);
 	}
 }
