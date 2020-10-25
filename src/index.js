@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Switch, Route } from 'react-router-dom';
 import { compose, createStore, applyMiddleware } from 'redux';
 import {rootReducer} from "./redux/rootReducer";
-import {sagaWatcher} from "./redux/sagas";
+import {sagaWatcher} from "./redux/rootSagas";
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import createSagaMiddleware from 'redux-saga';
