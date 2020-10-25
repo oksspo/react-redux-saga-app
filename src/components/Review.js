@@ -11,11 +11,14 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
-import { withStyles } from '@material-ui/core/styles';
-import { askConfirmation } from "../actions/rootActions";
-import { signOut } from "../actions/authActions";
+import {withStyles} from '@material-ui/core/styles';
+import {askConfirmation} from "../actions/rootActions";
+import {signOut} from "../actions/authActions";
 
 const styles = (theme) => ({
+	root: {
+		marginTop: theme.spacing(10)
+	},
 	comments: {
 		margin: theme.spacing(1, 0)
 	},
@@ -39,7 +42,7 @@ function renderComments(comments) {
 
 function Review(props) {
 	const {classes} = props;
-	return (<Container component="main" maxWidth="xs">
+	return (<Container className={classes.root}>
 		<Card>
 			<CardContent>
 				<Typography color="textSecondary" gutterBottom>

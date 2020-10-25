@@ -10,6 +10,9 @@ import { withStyles } from '@material-ui/core/styles';
 import { addPost } from "../actions/postActions";
 
 const styles = (theme) => ({
+	root: {
+		marginTop: theme.spacing(10)
+	},
 	next: {
 		justifyContent: 'flex-end',
 		marginRight: theme.spacing(1)
@@ -38,7 +41,7 @@ class PostForm extends React.PureComponent {
 
 	render() {
 		const { classes } = this.props;
-		return (<Card>
+		return (<Card className={classes.root}>
 			<form autoComplete="off"
 				  onSubmit={this.submitPost}>
 				<CardContent>

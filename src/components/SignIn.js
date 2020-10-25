@@ -52,7 +52,7 @@ class SignInForm extends React.PureComponent {
 	render() {
 		const { classes } = this.props;
 		return (
-			<Container component="main" maxWidth="xs">
+			<Container>
 				<Box m={3} className={classes.title}>
 					<Avatar className={classes.avatar}>
 						<LockOutlinedIcon />

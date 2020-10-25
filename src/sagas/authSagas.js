@@ -23,10 +23,7 @@ function* signInWorker(action) {
 
 		yield put({
 			type: CURRENT_USER,
-			payload: {
-				...payload[0],
-				token
-			}
+			payload: payload[0]
 		});
 
 		yield put(nextStep('/add-post'));
